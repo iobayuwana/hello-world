@@ -7,11 +7,20 @@
       "Type": "AWS::EC2::Instance",
       "Properties": {
         "AvailabilityZone": "us-east-1d",
-        "ImageId": "ami-038484ac910bf79db",
+        "ImageId": "038484ac910bf79db",
         "InstanceType": "t2.micro",
         "KeyName": "IRIAKEY",
-        "SecurityGroupIds": [ "sg-0d34a29bddf882f6d" ],
-        "SubnetId": "subnet-7135de2e"
+        "NetworkInterfaces": [
+            {
+                "AssociatePublicIpAddress": true,
+                "DeleteOnTermination": true,
+                "DeviceIndex": "0",
+                "SubnetId": "subnet-7135de2e",
+                "GroupSet": [
+                    "sg-0d34a29bddf882f6d"
+                ]
+            }
+        ]
       }
     }
   },
@@ -31,4 +40,5 @@
     }
   }
 }
+
 
